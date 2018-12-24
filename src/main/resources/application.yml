@@ -1,0 +1,66 @@
+spring:
+  application:
+    name: trip
+  profiles:
+    active: dev
+  #    多数据源配置
+  #      datasource:
+  #        mysql-url: jdbc:mysql://%s/%s?useUnicode=true&characterEncoding=utf8&useSSL=false&serverTimezone=UTC
+  #        mysql-driver-class-name: com.mysql.jdbc.Driver
+  #        d1:
+  #          ip-port: sh-cdb-d5pq6ixo.sql.tencentcdb.com:63778
+  #          db-name: tripdata
+  #          username: root
+  #          password: kaifa@123
+  #        d2:
+  #          ip-port: sh-cdb-d5pq6ixo.sql.tencentcdb.com:63778
+  #          db-name: test
+  #          username: root
+  #          password: kaifa@123
+  redis:
+    host: 139.180.197.1
+    port: 6379
+    database: 0
+    password: 123456
+    pool:
+      max-active: 8
+      max-wait: -1
+      max-idle: 8
+      min-idle: 0
+    timeout: 0
+#  data:
+#    elasticsearch:
+#      cluster-name: elasticsearch
+#      cluster-nodes: 139.180.197.1:9300
+#      local: false
+#      repositories:
+#        enabled: true
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://47.101.145.50:3306
+    username: root
+    password: 123456
+  hikari:
+    max-lifetime: 1765000
+    maximum-pool-size: 15
+  rabbitmq:
+    host: localhost
+    port: 5672
+    user: guest
+    password: guest
+server:
+  port: 8081
+mybatis:
+  mapper-locations: classpath:mapper/*.xml
+  type-aliases-package: com.example.demo.model
+jwt:
+  header: Bearer
+  prefix: Authention
+  expiration: 42900
+  secret: asdfgh
+logback:
+  remoteHost: 47.101.145.50
+  port: 9601
+elasticsearch:
+  ip: 47.101.145.50:9200
+
